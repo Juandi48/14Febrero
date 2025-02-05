@@ -18,7 +18,7 @@
             flex-direction: column;
             overflow: hidden;
         }
-        .container, .messageScreen {
+        .container {
             background: white;
             padding: 20px;
             border-radius: 10px;
@@ -72,8 +72,8 @@
         <h1>¿Quieres ser mi cita este 14 de febrero? ❤️</h1>
         <p>Me encantaría pasar un día especial contigo.</p>
         <div class="buttons">
-            <button id="yes" onclick="aceptar()">¡Sí, claro! 💕</button>
-            <button id="no" onmouseover="moverNo()">No puedo 😔</button>
+            <button id="yes">¡Sí, claro! 💕</button>
+            <button id="no">No puedo 😔</button>
         </div>
     </div>
     
@@ -82,5 +82,19 @@
         <p>Eres la persona más especial para mí, y estoy emocionado por nuestro día juntos. 💛</p>
         <div class="flower"></div>
     </div>
+    <script>
+        document.getElementById("yes").addEventListener("click", () => {
+            document.getElementById("mainContent").classList.add("hidden");
+            document.getElementById("messageScreen").classList.remove("hidden");
+        });
+        
+        document.getElementById("no").addEventListener("mouseover", () => {
+            let botonNo = document.getElementById("no");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 100);
+            botonNo.style.left = `${x}px`;
+            botonNo.style.top = `${y}px`;
+        });
+    </script>
 </body>
 </html>
