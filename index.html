@@ -23,6 +23,7 @@
         }
         .buttons {
             margin-top: 20px;
+            position: relative;
         }
         button {
             background-color: #ff4d4d;
@@ -33,9 +34,14 @@
             cursor: pointer;
             margin: 10px;
             border-radius: 5px;
+            position: absolute;
+            transition: all 0.3s ease;
         }
         button:hover {
             background-color: #ff1a1a;
+        }
+        #no {
+            left: 50px;
         }
     </style>
 </head>
@@ -44,8 +50,8 @@
         <h1>¿Quieres ser mi cita este 14 de febrero? ❤️</h1>
         <p>Me encantaría pasar un día especial contigo.</p>
         <div class="buttons">
-            <button onclick="aceptar()">¡Sí, claro! 💕</button>
-            <button onclick="rechazar()">No puedo 😔</button>
+            <button id="yes" onclick="aceptar()">¡Sí, claro! 💕</button>
+            <button id="no" onmouseover="moverNo()">No puedo 😔</button>
         </div>
     </div>
     
@@ -53,9 +59,15 @@
         function aceptar() {
             alert("¡Qué felicidad! Ya planearé algo especial para nosotros. 💖");
         }
-        function rechazar() {
-            alert("Oh... Bueno, lo intentaré de nuevo el próximo año. 😢");
+
+        function moverNo() {
+            let botonNo = document.getElementById("no");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 100);
+            botonNo.style.left = `${x}px`;
+            botonNo.style.top = `${y}px`;
         }
     </script>
 </body>
 </html>
+
